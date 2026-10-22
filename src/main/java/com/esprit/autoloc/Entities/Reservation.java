@@ -18,4 +18,13 @@ public class Reservation {
 
     @Enumerated(EnumType.STRING)
     private StatusReservation statut;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Client client;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Vehicule vehicule;
+
+    @OneToOne(mappedBy = "reservation", fetch = FetchType.LAZY)
+    private Contrat contrat;
 }
