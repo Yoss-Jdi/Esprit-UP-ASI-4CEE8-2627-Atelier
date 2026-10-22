@@ -2,6 +2,7 @@ package com.esprit.autoloc.Entities;
 
 
 import com.esprit.autoloc.domain.ModePaiement;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
@@ -24,5 +25,6 @@ public class Paiement {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "contrat_id")
+    @JsonBackReference("contrat-paiements")
     private Contrat contrat;
 }
